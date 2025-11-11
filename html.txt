@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hotel Booking System</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>🏨 Hotel Booking System</h1>
+    <p>Select your favorite hotel and room type!</p>
+  </header>
+
+  <!-- Royal Grand Hotel -->
+  <section class="hotel">
+    <h2>🌆 Royal Grand Hotel</h2>
+    <img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=1000&q=80" alt="Royal Grand Hotel" class="hotel-img">
+    <div class="rooms">
+      <div class="room">
+        <img src="https://images.unsplash.com/photo-1590490359854-dfba19688d70?auto=format&fit=crop&w=1000&q=80" alt="Deluxe Room">
+        <h3>Deluxe Room</h3>
+        <p>₹2800 / night</p>
+        <button onclick="selectRoom('Royal Grand Hotel','Deluxe Room',2800)">Book</button>
+      </div>
+      <div class="room">
+        <img src="https://images.unsplash.com/photo-1505691938895-1758d7feb511?auto=format&fit=crop&w=1000&q=80" alt="Luxury Suite">
+        <h3>Luxury Suite</h3>
+        <p>₹4500 / night</p>
+        <button onclick="selectRoom('Royal Grand Hotel','Luxury Suite',4500)">Book</button>
+      </div>
+      <div class="room">
+        <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1000&q=80" alt="Family Room">
+        <h3>Family Room</h3>
+        <p>₹3500 / night</p>
+        <button onclick="selectRoom('Royal Grand Hotel','Family Room',3500)">Book</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Ocean Paradise Resort -->
+  <section class="hotel">
+    <h2>🏖️ Ocean Paradise Resort</h2>
+    <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1000&q=80" alt="Ocean Paradise Resort" class="hotel-img">
+    <div class="rooms">
+      <div class="room">
+        <!-- ✅ FIXED STANDARD ROOM -->
+        <img src="https://images.unsplash.com/photo-1611892440504-42a792e24d32?auto=format&fit=crop&w=1000&q=80" alt="Standard Room">
+        <h3>Standard Room</h3>
+        <p>₹2300 / night</p>
+        <button onclick="selectRoom('Ocean Paradise Resort','Standard Room',2300)">Book</button>
+      </div>
+      <div class="room">
+        <img src="https://images.unsplash.com/photo-1578683010236-d716f9a3f461?auto=format&fit=crop&w=1000&q=80" alt="Sea View Suite">
+        <h3>Sea View Suite</h3>
+        <p>₹4800 / night</p>
+        <button onclick="selectRoom('Ocean Paradise Resort','Sea View Suite',4800)">Book</button>
+      </div>
+      <div class="room">
+        <img src="https://images.unsplash.com/photo-1611892443831-0d6d47c78dd8?auto=format&fit=crop&w=1000&q=80" alt="Beach Villa">
+        <h3>Beach Villa</h3>
+        <p>₹6200 / night</p>
+        <button onclick="selectRoom('Ocean Paradise Resort','Beach Villa',6200)">Book</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Mountain View Inn -->
+  <section class="hotel">
+    <h2>🏔️ Mountain View Inn</h2>
+    <!-- ✅ FIXED FRONT IMAGE -->
+    <img src="https://images.unsplash.com/photo-1551888419-7b7a520fe2df?auto=format&fit=crop&w=1000&q=80" alt="Mountain View Inn" class="hotel-img">
+    <div class="rooms">
+      <div class="room">
+        <img src="https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?auto=format&fit=crop&w=1000&q=80" alt="Cozy Cabin">
+        <h3>Cozy Cabin</h3>
+        <p>₹2700 / night</p>
+        <button onclick="selectRoom('Mountain View Inn','Cozy Cabin',2700)">Book</button>
+      </div>
+      <div class="room">
+        <img src="https://images.unsplash.com/photo-1600047509807-ba8f99d2cdde?auto=format&fit=crop&w=1000&q=80" alt="Premium Room">
+        <h3>Premium Room</h3>
+        <p>₹3900 / night</p>
+        <button onclick="selectRoom('Mountain View Inn','Premium Room',3900)">Book</button>
+      </div>
+      <div class="room">
+        <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1000&q=80" alt="Honeymoon Suite">
+        <h3>Honeymoon Suite</h3>
+        <p>₹5200 / night</p>
+        <button onclick="selectRoom('Mountain View Inn','Honeymoon Suite',5200)">Book</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Booking Form -->
+  <section class="booking">
+    <h2>📝 Book Your Room</h2>
+    <form id="bookingForm">
+      <label>Your Name:</label>
+      <input type="text" id="name" required>
+
+      <label>Email:</label>
+      <input type="email" id="email" required>
+
+      <label>Hotel Name:</label>
+      <input type="text" id="hotelName" readonly>
+
+      <label>Room Type:</label>
+      <input type="text" id="roomType" readonly>
+
+      <label>Price per Night:</label>
+      <input type="text" id="price" readonly>
+
+      <label>Check-in Date:</label>
+      <input type="date" id="fromDate" required>
+
+      <label>Check-out Date:</label>
+      <input type="date" id="toDate" required>
+
+      <label>Total Price:</label>
+      <input type="text" id="total" readonly>
+
+      <button type="button" onclick="confirmBooking()">Confirm Booking</button>
+    </form>
+
+    <div id="confirmation"></div>
+  </section>
+
+  <script src="script.js"></script>
+</body>
+</html>

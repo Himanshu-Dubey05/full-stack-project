@@ -1,0 +1,58 @@
+let selectedHotel = '';
+let selectedRoom = '';
+let price = 0;
+
+function selectRoom(hotel, room, roomPrice) {
+  selectedHotel = hotel;
+  selectedRoom = room;
+  price = roomPrice;
+  document.getElementById("hotelName").value = hotel;
+  document.getElementById("roomType").value = room;
+  document.getElementById("price").value = "₹" + roomPrice;
+  document.getElementById("total").value = "";
+  window.scrollTo({ top: document.querySelector(".booking").offsetTop, behavior: "smooth" });
+}
+
+function confirmBooking() {
+  const name = document.getElementById("name").value;
+  const email = document.getElementById("email").value;
+  const fromDate = new Date(document.getElementById("fromDate").value);
+  const toDate = new Date(document.getElementById("toDate").value);
+
+  if (!name || !email || !fromDate || !toDate) {
+    alert("Please fill all fields!");
+    return;
+  }
+
+  const days = Math.ceil((toDate - fromDate) / (1000 * 3600 * 24));
+  if (days <= 0) {
+    alert("Check-out date must be after check-in date!");
+    return;
+  }
+
+  const total = days * price;
+  document.getElementById("total").value = "₹" + total;
+
+  const reference = "REF" + Math.floor(100000 + Math.random() * 900000);
+
+  const message = `
+✅ Booking Confirmed!
+Reference No: ${reference}
+Name: ${name}
+Hotel: ${selectedHotel}
+Room: ${selectedRoom}
+Nights: ${days}
+Total: ₹${total}
+Check-in: ${fromDate.toDateString()}
+Check-out: ${toDate.toDateString()}
+  `;
+
+  const confirmBox = document.getElementById("confirmation");
+  confirmBox.style.display = "block";
+  confirmBox.innerText = message;
+
+  document.getElementById("bookingForm").reset();
+  document.getElementById("hotelName").value = "";
+  document.getElementById("roomType").value = "";
+  document.getElementById("price").value = "";
+}
