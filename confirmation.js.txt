@@ -1,0 +1,29 @@
+import React from "react";
+import { useLocation, useNavigate } from "react-router-dom";
+import "../App.css";
+
+function Confirmation() {
+  const location = useLocation();
+  const navigate = useNavigate();
+  const booking = location.state;
+
+  if (!booking) {
+    return <p>No booking data found.</p>;
+  }
+
+  return (
+    <div className="confirmation">
+      <h2>✅ Booking Confirmed!</h2>
+      <p><strong>Name:</strong> {booking.name}</p>
+      <p><strong>Email:</strong> {booking.email}</p>
+      <p><strong>Check-in:</strong> {booking.checkIn}</p>
+      <p><strong>Check-out:</strong> {booking.checkOut}</p>
+      <p><strong>Guests:</strong> {booking.guests}</p>
+      <p><strong>Hotel ID:</strong> {booking.hotelId}</p>
+
+      <button onClick={() => navigate("/")}>Back to Hotels</button>
+    </div>
+  );
+}
+
+export default Confirmation;

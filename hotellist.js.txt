@@ -1,0 +1,35 @@
+import React from "react";
+import { useNavigate } from "react-router-dom";
+import "../App.css";
+
+const hotels = [
+  { id: 1, name: "Hotel Paradise", location: "Goa", price: 2500 },
+  { id: 2, name: "Sea View Resort", location: "Mumbai", price: 4000 },
+  { id: 3, name: "Mountain Stay", location: "Manali", price: 3200 },
+];
+
+function HotelList() {
+  const navigate = useNavigate();
+
+  const handleBook = (id) => {
+    navigate(`/book/${id}`);
+  };
+
+  return (
+    <div className="hotel-list">
+      <h2>Available Hotels</h2>
+      <div className="hotel-grid">
+        {hotels.map((hotel) => (
+          <div key={hotel.id} className="hotel-card">
+            <h3>{hotel.name}</h3>
+            <p>📍 {hotel.location}</p>
+            <p>💰 ₹{hotel.price} / night</p>
+            <button onClick={() => handleBook(hotel.id)}>Book Now</button>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}
+
+export default HotelList;

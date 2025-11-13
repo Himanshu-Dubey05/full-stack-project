@@ -1,0 +1,23 @@
+import React from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import HotelList from "./components/HotelList";
+import BookingForm from "./components/BookingForm";
+import Confirmation from "./components/Confirmation";
+import "./App.css";
+
+function App() {
+  return (
+    <Router>
+      <div className="app-container">
+        <h1 className="app-title">🏨 Hotel Reservation System</h1>
+        <Routes>
+          <Route path="/" element={<HotelList />} />
+          <Route path="/book/:hotelId" element={<BookingForm />} />
+          <Route path="/confirmation" element={<Confirmation />} />
+        </Routes>
+      </div>
+    </Router>
+  );
+}
+
+export default App;

@@ -1,0 +1,95 @@
+body {
+  margin: 0;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background: #f4f6f8;
+  color: #333;
+}
+
+.app-container {
+  text-align: center;
+  padding: 20px;
+}
+
+.app-title {
+  font-size: 28px;
+  margin-bottom: 20px;
+  color: #1a73e8;
+}
+
+.hotel-list h2 {
+  font-size: 22px;
+}
+
+.hotel-grid {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.hotel-card {
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  width: 240px;
+  transition: transform 0.2s;
+}
+
+.hotel-card:hover {
+  transform: scale(1.05);
+}
+
+.hotel-card button {
+  background-color: #1a73e8;
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.hotel-card button:hover {
+  background-color: #155cb0;
+}
+
+.booking-form form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 280px;
+  margin: 0 auto;
+  text-align: left;
+}
+
+.booking-form input, .booking-form button {
+  padding: 10px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+}
+
+.booking-form button {
+  background-color: #1a73e8;
+  color: white;
+  cursor: pointer;
+}
+
+.confirmation {
+  text-align: center;
+  background: #fff;
+  padding: 20px;
+  border-radius: 12px;
+  width: 300px;
+  margin: 40px auto;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.confirmation button {
+  background-color: #1a73e8;
+  color: white;
+  border: none;
+  padding: 10px 16px;
+  border-radius: 8px;
+  cursor: pointer;
+  margin-top: 10px;
+}

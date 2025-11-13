@@ -1,0 +1,43 @@
+import React, { useState } from "react";
+import { useNavigate, useParams } from "react-router-dom";
+import "../App.css";
+
+function BookingForm() {
+  const { hotelId } = useParams();
+  const navigate = useNavigate();
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    checkIn: "",
+    checkOut: "",
+    guests: 1,
+  });
+
+  const handleChange = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    navigate("/confirmation", { state: { ...formData, hotelId } });
+  };
+
+  return (
+    <div className="booking-form">
+      <h2>Book Hotel #{hotelId}</h2>
+      <form onSubmit={handleSubmit}>
+        <input type="text" name="name" placeholder="Full Name" required onChange={handleChange} />
+        <input type="email" name="email" placeholder="Email Address" required onChange={handleChange} />
+        <label>Check-in Date:</label>
+        <input type="date" name="checkIn" required onChange={handleChange} />
+        <label>Check-out Date:</label>
+        <input type="date" name="checkOut" required onChange={handleChange} />
+        <label>Guests:</label>
+        <input type="number" name="guests" min="1" max="10" value={formData.guests} onChange={handleChange} />
+        <button type="submit">Confirm Booking</button>
+      </form>
+    </div>
+  );
+}
+
+export default BookingForm;
